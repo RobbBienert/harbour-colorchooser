@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<svg width="256" height="256" viewBox="0 0 256 256"
+	version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>harbour-colorchooser</title>
+<desc>SailfishOS icon for app harbour-colorchooser</desc>
+<defs>
+	<linearGradient id="rainbow" gradientUnits="objectBoundingBox" x1="0%" y="100%" x2="100%" y2="0%" gradientTransform="rotate(45)">
+		<stop offset="0%" stop-color="red"/>
+		<stop offset="20%" stop-color="orange"/>
+		<stop offset="40%" stop-color="yellow"/>
+		<stop offset="60%" stop-color="green"/>
+		<stop offset="80%" stop-color="blue"/>
+		<stop offset="100%" stop-color="purple"/>
+	</linearGradient>
+	<!-- definierte Objekte: g, path, … benutzen das Koordinatensystem
+	     der Grafik, symbol hat sein eigenes System.
+	  -->
+	<g id="Ecke1Kreis">
+		<desc>Ein 3/4-Kreis mit einer Ecke</desc>
+		<path d="M0,0 h128 a128,128 1 1 1 -128,128z"/>
+	</g>
+	<g id="Slider">
+		<rect x="40" y="120" width="184" height="16" rx="4" fill="white" stroke="black"/>
+	</g>
+	<circle id="Knopf" cx="128" cy="128" r="24" stroke="black"/>
+</defs>
+<!-- die Vektoren der Grafik -->
+<g id="icon">
+	<g id="frame" transform="translate(0,256)rotate(-90)">
+		<use xlink:href="#Ecke1Kreis" fill="url(#rainbow)"/>
+		<!--
+		<use xlink:href="#Ecke1Kreis" stroke="white" stroke-width="4" fill="url(#rainbow)"/>
+		-->
+		<use xlink:href="#Ecke1Kreis" fill="white" fill-opacity=".2"/>
+	</g>
+	<g id="sliders">
+		<g id="sliderR" transform="translate(0,-64)">
+			<use xlink:href="#Slider"/><use xlink:href="#Knopf" fill="red" transform="translate(-44,0)"/>
+		</g>
+		<g id="sliderG">
+			<use xlink:href="#Slider"/><use xlink:href="#Knopf" fill="green" transform="translate(-11,0)"/>
+		</g>
+		<g id="sliderB" transform="translate(0,64)">
+			<use xlink:href="#Slider"/><use xlink:href="#Knopf" fill="blue" transform="translate(44,0)"/>
+		</g>
+	</g>
+</g>
+</svg>
