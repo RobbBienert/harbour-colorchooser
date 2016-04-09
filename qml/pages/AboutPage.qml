@@ -23,7 +23,7 @@ Page {
             id: col
             spacing: Theme.paddingLarge
             width: parent.width
-            height: header.height + about.implicitHeight + copyright.implicitHeight + license.implicitHeight + 4 * spacing
+            height: header.height + about.implicitHeight + copyright.implicitHeight + link.implicitHeight + license.implicitHeight + 5 * spacing
             anchors.leftMargin: Theme.paddingMedium
             anchors.rightMargin: Theme.paddingMedium
 
@@ -35,12 +35,14 @@ Page {
             SailText {
                 id: about
                 text: qsTr("choose a RGB colour from sliders for red, green and blue")
-                textFormat: Text.StyledText
-                onLinkActivated: Qt.openUrlExternally(link)
             }
             SailText {
                 id: copyright
                 text: "Version 0.1-2\nCopyright © 2016 Robert Bienert"
+            }
+            TextWithLink {
+                id: link
+                text: '<a href="https://github.com/RobbBienert/harbour-colorchooser"><font color="' + Theme.highlightColor + '">Git Repository &amp; Wiki</font></a>'
             }
 
             TextWithLink {
