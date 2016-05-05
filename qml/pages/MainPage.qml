@@ -25,6 +25,17 @@ import "ColourStore.js" as ColourStore
 Page {
     id: page
 
+    function reloadColours() {
+        var currentColour   = ColourStore.colour();
+        var currentR    = ColourStore.r(-1);
+        var currentG    = ColourStore.g(-1);
+        var currentB    = ColourStore.b(-1);
+
+        red.value   = currentR;
+        green.value = currentG;
+        blue.value  = currentB;
+    }
+
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
         anchors.fill: parent
@@ -36,6 +47,15 @@ Page {
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
                 }
+            }
+            MenuItem {
+                text: qsTr("Load Colour")
+                onClicked: pageStack.push(Qt.resolvedUrl("LoadColour.qml"))
+            }
+
+            MenuItem {
+                text: qsTr("Save Colour")
+                onClicked: pageStack.push(Qt.resolvedUrl("SaveDialog.qml"))
             }
         }
 
@@ -124,16 +144,21 @@ Page {
                     var r, g, b
 
                     if (text.length === 7) {
+                        ColourStore.setHexColour(colourName.text)
+                        var rgb = ColourStore.rgb()
+                        r = rgb[0]; g = rgb[1]; b = rgb[2];
+                        /*
                         r = parseInt(colourName.text.substr(1, 2), 16)
                         g = parseInt(colourName.text.substr(3, 2), 16)
                         b = parseInt(colourName.text.substr(5, 2), 16)
+                        */
                     }
                     else if (text.length === 4) {
                         r = parseInt(text[1], 16)
                         g = parseInt(text[2], 16)
                         b = parseInt(text[3], 16)
+                        ColourStore.setColour(r, g, b)
                     }
-                    ColourStore.setColour(r, g, b)
                     colour.color = text
                     red.value = r
                     green.value = g

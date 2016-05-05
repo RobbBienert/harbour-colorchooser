@@ -38,7 +38,7 @@ Page {
             }
             SailText {
                 id: copyright
-                text: "Version 0.1-2\nCopyright © 2016 Robert Bienert"
+                text: "Version 0.2-3\nCopyright © 2016 Robert Bienert"
             }
             TextWithLink {
                 id: link

@@ -42,5 +42,9 @@ DISTFILES += \
     qml/types/SailText.qml \
     qml/pages/ColourStore.js \
     qml/types/TextWithLink.qml \
-    qml/types/ColourSlider.qml
+    qml/types/ColourSlider.qml \
+    qml/pages/SaveDialog.qml \
+    qml/types/ColourBox.qml \
+    qml/pages/Settings.js \
+    qml/pages/LoadColour.qml
 

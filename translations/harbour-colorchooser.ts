@@ -28,6 +28,21 @@
     </message>
 </context>
 <context>
+    <name>LoadColour</name>
+    <message>
+        <source>Load Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainPage</name>
     <message>
         <source>Colour Chooser</source>
@@ -47,6 +62,25 @@
     </message>
     <message>
         <source>About …</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SaveDialog</name>
+    <message>
+        <source>Save Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour Name</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

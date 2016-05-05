@@ -52,11 +52,23 @@ function b(newB) {
     _bb = _b / MAX;
 }
 
+function setHexColour(hexString) {
+    var r_ = parseInt(hexString.substr(1, 2), 16);
+    var g_ = parseInt(hexString.substr(3, 2), 16);
+    var b_ = parseInt(hexString.substr(5, 2), 16);
+
+    setColour(r_, g_, b_);
+}
+
 function setColour(newR, newG, newB) {
     r(newR); g(newG); b(newB);
 }
 
 // getter
+function rgb() {
+    return [_r, _g, _b];
+}
+
 function colour() {
     return Qt.rgba(_rr, _gg, _bb);
 }

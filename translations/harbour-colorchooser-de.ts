@@ -28,6 +28,21 @@
     </message>
 </context>
 <context>
+    <name>LoadColour</name>
+    <message>
+        <source>Load Colour</source>
+        <translation>Farbe Wählen</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation>Löschen</translation>
+    </message>
+</context>
+<context>
     <name>MainPage</name>
     <message>
         <source>Colour Chooser</source>
@@ -48,6 +63,25 @@
     <message>
         <source>About …</source>
         <translation>Über …</translation>
+    </message>
+    <message>
+        <source>Save Colour</source>
+        <translation>Farbe Speichern</translation>
+    </message>
+    <message>
+        <source>Load Colour</source>
+        <translation>Farbe Laden</translation>
+    </message>
+</context>
+<context>
+    <name>SaveDialog</name>
+    <message>
+        <source>Save Colour</source>
+        <translation>Farbe Speichern</translation>
+    </message>
+    <message>
+        <source>Colour Name</source>
+        <translation>Farbname</translation>
     </message>
 </context>
 </TS>
