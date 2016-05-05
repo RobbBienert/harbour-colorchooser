@@ -30,15 +30,15 @@
 <context>
     <name>LoadColour</name>
     <message>
-        <source>Load Colour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load/Edit Colour</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -69,7 +69,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Load Colour</source>
+        <source>Load/Edit Colour</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

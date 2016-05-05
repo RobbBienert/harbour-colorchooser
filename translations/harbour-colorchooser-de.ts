@@ -30,16 +30,16 @@
 <context>
     <name>LoadColour</name>
     <message>
-        <source>Load Colour</source>
-        <translation>Farbe Wählen</translation>
-    </message>
-    <message>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
         <source>Deleting</source>
         <translation>Löschen</translation>
+    </message>
+    <message>
+        <source>Load/Edit Colour</source>
+        <translation>Farbe Laden/Bearbeiten</translation>
     </message>
 </context>
 <context>
@@ -69,8 +69,8 @@
         <translation>Farbe Speichern</translation>
     </message>
     <message>
-        <source>Load Colour</source>
-        <translation>Farbe Laden</translation>
+        <source>Load/Edit Colour</source>
+        <translation>Farbe Laden/Bearbeiten</translation>
     </message>
 </context>
 <context>

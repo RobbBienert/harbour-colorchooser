@@ -23,9 +23,19 @@ Page {
             id: col
             spacing: Theme.paddingLarge
             width: parent.width
-            height: header.height + about.implicitHeight + copyright.implicitHeight + link.implicitHeight + license.implicitHeight + 5 * spacing
+            height: totalHeight()
             anchors.leftMargin: Theme.paddingMedium
             anchors.rightMargin: Theme.paddingMedium
+
+            function totalHeight() {
+                var h = 0;
+                var l = col.children.length;
+
+                for (var i = 0; i < l; ++i)
+                     h += col.children[i].height;
+
+                return h + l * col.spacing;
+            }
 
             PageHeader {
                 id: header
@@ -38,8 +48,13 @@ Page {
             }
             SailText {
                 id: copyright
-                text: "Version 0.2-3\nCopyright © 2016 Robert Bienert"
+                text: "Version 0.2-4\nCopyright © 2016 Robert Bienert"
             }
+            /* The standard link colour is (dark) blue, which is nearly
+             * unreadable in most themes. A better link colour seems to
+             * be Theme.highlightColor, but we need to set this colour
+             * explicitly.
+             */
             TextWithLink {
                 id: link
                 text: '<a href="https://github.com/RobbBienert/harbour-colorchooser"><font color="' + Theme.highlightColor + '">Git Repository &amp; Wiki</font></a>'

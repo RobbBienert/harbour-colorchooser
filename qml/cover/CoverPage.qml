@@ -19,6 +19,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../pages/ColourStore.js" as ColourStore
+import "../types"
 
 CoverBackground {
     id: cover
@@ -32,15 +33,8 @@ CoverBackground {
             text: qsTr("Colour Chosen:")
         }
 
-        Rectangle {
+        ColourBox {
             id: box
-            x: Theme.paddingMedium
-            width: parent.width - 2*x
-            height: width
-            radius: x
-            border.color: 'white'
-            border.width: 2
-            color: ColourStore.colour()
         }
 
         Label {
@@ -52,10 +46,12 @@ CoverBackground {
     }
 
     onStatusChanged: {
+        /* This handler is called e.g. if the CoverPage becomes active,
+         * i.e. when we switch to the application cover or change the
+         * app and then return to this app.
+         */
         if (cover.status === Cover.Active) {
             box.color = ColourStore.colour()
         }
     }
 }
-
-

@@ -14,7 +14,7 @@ Name:       harbour-colorchooser
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Color Chooser
 Version:    0.2
-Release:    3
+Release:    4
 Group:      Qt/Qt
 License:    LICENSE
 URL:        http://example.org/

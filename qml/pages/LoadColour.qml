@@ -1,4 +1,4 @@
-/* loading a colour
+/* loading and editing a colour
  *
  * Copyright (C) 2016 Robert Bienert
  * project harbour-colorchooser
@@ -22,6 +22,11 @@ import "../types"
 import "ColourStore.js" as ColourStore
 import "Settings.js" as Settings
 
+// To think about:
+// Instead of a Page we also could use a Dialog. Cancel would neither
+// load a colour nor delete an item. By clicking Accept all deletes
+// would be applied and the selected colour be set.
+
 Page {
     id: page
 
@@ -29,13 +34,19 @@ Page {
         id: listView
         anchors.fill: parent
         header: PageHeader {
-            title: qsTr("Load Colour")
+            title: qsTr("Load/Edit Colour")
         }
 
+        /* XXX I haven't found out how to use "a real" data model, so
+         * here it works like this: We store everything from the
+         * database in a property. The "actual" model is just the array
+         * length – and then there is QML magic doing the rest.
+         */
         property var colours: Settings.get()
 
         model: colours.length
 
+        // This idea is taken from the QML and Sailfish.Silica documentation:
         delegate: ListItem {
             id: delegate
             menu: contextMenu
@@ -52,6 +63,7 @@ Page {
             Grid {
                 columns: 3
                 spacing: Theme.paddingMedium
+                x: Theme.paddingMedium
 
                 ColourBox {
                     id: box
@@ -62,21 +74,23 @@ Page {
 
                 Label {
                     text: listView.colours[index].name
-                    //anchors.verticalCenter: parent.verticalCenter
                     color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
                 }
                 Label {
                     text: listView.colours[index].colour
-                    //anchors.verticalCenter: parent.verticalCenter
                     color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
                 }
             }
+            /* This handler is only called when we click the item –
+             * not when tapping.
+             */
             onClicked: {
                 var currentColour = listView.colours[index];
                 ColourStore.setHexColour(currentColour.colour);
                 pageStack.previousPage().reloadColours();
                 pageStack.pop();
             }
+            // The ContextMenu pops up when we tap an item.
             Component {
                 id: contextMenu
                 ContextMenu {

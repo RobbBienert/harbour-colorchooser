@@ -19,7 +19,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../types"
-import "ColourStore.js" as ColourStore
 import "Settings.js" as Settings
 
 Dialog {
@@ -38,15 +37,18 @@ Dialog {
 
             ColourBox {
                 id: colourBox
-                width: parent.width / parent.columns - parent.spacing
+                width: (parent.width - parent.spacing) / parent.columns
+                x: parent.spacing
                 radius: Theme.paddingMedium
             }
 
             Column {
-                width: parent.width / parent.columns - parent.spacing
+                width: (parent.width - parent.spacing) / parent.columns
 
                 Label {
                     text: colourBox.color
+                    // FIXME: The left padding is not the same as the TextField name.
+                    x: parent.spacing
                 }
 
                 TextField {

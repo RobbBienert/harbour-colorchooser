@@ -25,6 +25,9 @@ import "ColourStore.js" as ColourStore
 Page {
     id: page
 
+    /* We need this function for loading a colour when we go back on the
+     * PageStack. In this case the ColourStore is not re-read.
+     */
     function reloadColours() {
         var currentColour   = ColourStore.colour();
         var currentR    = ColourStore.r(-1);
@@ -49,7 +52,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Load Colour")
+                text: qsTr("Load/Edit Colour")
                 onClicked: pageStack.push(Qt.resolvedUrl("LoadColour.qml"))
             }
 
@@ -66,6 +69,13 @@ Page {
         // of the page, followed by our content.
         Column {
             id: column
+
+            /* This property is necessary as some kind of "lock" while
+             * editing the colour. The TextField colourName has not to
+             * interfer with the ColourSliders, otherwise a infinity
+             * loop would exist.
+             * So colourName sets it, the slider reset it.
+             */
             property bool manualEditing: false
 
             width: page.width
@@ -113,6 +123,9 @@ Page {
                 }
             }
 
+            /* This is a large colour box – but it is really different
+             * from the ColourBox type.
+             */
             Rectangle {
                 id: colour
                 x: Theme.paddingLarge
@@ -134,7 +147,10 @@ Page {
                 width: parent.width - 2 * parent.spacing
                 font.pixelSize: Theme.fontSizeLarge
                 horizontalAlignment: Text.Center
-                validator: RegExpValidator { regExp: /^\#[0-9a-f]{,6}$/ }
+                validator: RegExpValidator {
+                    // only hexadecimal digits allowed
+                    regExp: /^\#[0-9a-f]{,6}$/
+                }
                 inputMethodHints: Qt.ImhNoPredictiveText
 
                 onTextChanged: {
@@ -147,11 +163,6 @@ Page {
                         ColourStore.setHexColour(colourName.text)
                         var rgb = ColourStore.rgb()
                         r = rgb[0]; g = rgb[1]; b = rgb[2];
-                        /*
-                        r = parseInt(colourName.text.substr(1, 2), 16)
-                        g = parseInt(colourName.text.substr(3, 2), 16)
-                        b = parseInt(colourName.text.substr(5, 2), 16)
-                        */
                     }
                     else if (text.length === 4) {
                         r = parseInt(text[1], 16)
