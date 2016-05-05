@@ -46,5 +46,6 @@ DISTFILES += \
     qml/pages/SaveDialog.qml \
     qml/types/ColourBox.qml \
     qml/pages/Settings.js \
-    qml/pages/LoadColour.qml
+    qml/pages/LoadColour.qml \
+    rpm/harbour-colorchooser.changes
 
