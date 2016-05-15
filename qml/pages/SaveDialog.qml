@@ -22,6 +22,7 @@ import "../types"
 import "Settings.js" as Settings
 
 Dialog {
+    id: saveDlg
     Column {
         width: parent.width
 
@@ -55,6 +56,9 @@ Dialog {
                     id: name
                     width: parent.width
                     label: qsTr("Colour Name")
+                    EnterKey.enabled: text.length > 0
+                    EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+                    EnterKey.onClicked: saveDlg.accept()
                 }
             }
         }

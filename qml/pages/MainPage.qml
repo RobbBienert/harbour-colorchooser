@@ -153,10 +153,11 @@ Page {
                 }
                 inputMethodHints: Qt.ImhNoPredictiveText
 
-                onTextChanged: {
-                    if (! (column.manualEditing && (text.length === 4 || text.length === 7)))
-                        return;
+                EnterKey.enabled: text.length > 0
+                EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+                EnterKey.onClicked: enterColour()
 
+                function enterColour() {
                     var r, g, b
 
                     if (text.length === 7) {
@@ -174,6 +175,12 @@ Page {
                     red.value = r
                     green.value = g
                     blue.value = b
+                }
+
+                onTextChanged: {
+                    if (column.manualEditing && (text.length === 7 || text.length === 4))
+                        enterColour();
+
                 }
                 onClicked: {
                     column.manualEditing = true
