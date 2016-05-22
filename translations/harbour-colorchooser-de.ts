@@ -28,6 +28,13 @@
     </message>
 </context>
 <context>
+    <name>FullScreen</name>
+    <message>
+        <source>Fullscreen</source>
+        <translation>Vollbild</translation>
+    </message>
+</context>
+<context>
     <name>LoadColour</name>
     <message>
         <source>Remove</source>
@@ -71,6 +78,10 @@
     <message>
         <source>Load/Edit Colour</source>
         <translation>Farbe Laden/Bearbeiten</translation>
+    </message>
+    <message>
+        <source>Fullscreen</source>
+        <translation>Vollbild</translation>
     </message>
 </context>
 <context>

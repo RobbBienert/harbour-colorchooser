@@ -52,6 +52,11 @@ Page {
                 }
             }
             MenuItem {
+                text: qsTr("Fullscreen")
+                onClicked: pageStack.push(Qt.resolvedUrl("FullScreen.qml"))
+            }
+
+            MenuItem {
                 text: qsTr("Load/Edit Colour")
                 onClicked: pageStack.push(Qt.resolvedUrl("LoadColour.qml"))
             }

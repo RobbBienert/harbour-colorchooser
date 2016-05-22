@@ -28,6 +28,13 @@
     </message>
 </context>
 <context>
+    <name>FullScreen</name>
+    <message>
+        <source>Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LoadColour</name>
     <message>
         <source>Remove</source>
@@ -70,6 +77,10 @@
     </message>
     <message>
         <source>Load/Edit Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

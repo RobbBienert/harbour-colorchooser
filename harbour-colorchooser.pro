@@ -47,5 +47,6 @@ DISTFILES += \
     qml/types/ColourBox.qml \
     qml/pages/Settings.js \
     qml/pages/LoadColour.qml \
-    rpm/harbour-colorchooser.changes
+    rpm/harbour-colorchooser.changes \
+    qml/pages/FullScreen.qml
 
