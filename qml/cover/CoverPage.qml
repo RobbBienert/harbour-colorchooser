@@ -26,7 +26,7 @@ CoverBackground {
 
     Column {
         anchors.centerIn: parent
-        spacing: Theme.paddingLarge
+        spacing: Theme.paddingMedium
 
         Label {
             id: label
@@ -42,6 +42,42 @@ CoverBackground {
             width: parent.width
             text: box.color
             horizontalAlignment: Text.Center
+        }
+        Label {
+            text: ""
+        }
+
+        CoverActionList {
+            id: coverAction
+
+            /* CoverAction handling taken from the worldclock app by a-dekker
+             * https://github.com/a-dekker/worldclock/
+             */
+            CoverAction {
+                iconSource: "image://theme/icon-s-new"
+                onTriggered: {
+                    pageStack.push(Qt.resolvedUrl("../pages/SaveDialog.qml"))
+                    pageStack.completeAnimation()
+                    app.activate()
+                }
+            }
+
+            CoverAction {
+                iconSource: "image://theme/icon-s-setting"
+                onTriggered: {
+                    pageStack.push(Qt.resolvedUrl("../pages/LoadColour.qml"))
+                    pageStack.completeAnimation()
+                    app.activate()
+                }
+            }
+            CoverAction {
+                iconSource: "image://theme/icon-s-device-upload"
+                onTriggered: {
+                    pageStack.push(Qt.resolvedUrl("../pages/FullScreen.qml"))
+                    pageStack.completeAnimation()
+                    app.activate()
+                }
+            }
         }
     }
 

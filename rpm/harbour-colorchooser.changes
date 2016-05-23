@@ -5,6 +5,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon May 23 2016 Robert Bienert <robertbienert@gmx.net> 0.3-8
+- CoverAction's for saving and loading colours as well as fullscreen mode added
+
 * Sun May 22 2016 Robert Bienert <robertbienert@gmx.net> 0.3-7
 - Fullscreen mode enabled (applying to issue #1)
 
