@@ -29,14 +29,9 @@ Page {
      * PageStack. In this case the ColourStore is not re-read.
      */
     function reloadColours() {
-        var currentColour   = ColourStore.colour();
-        var currentR    = ColourStore.r(-1);
-        var currentG    = ColourStore.g(-1);
-        var currentB    = ColourStore.b(-1);
-
-        red.value   = currentR;
-        green.value = currentG;
-        blue.value  = currentB;
+        red.value   = ColourStore.r();
+        green.value = ColourStore.g();
+        blue.value  = ColourStore.b();
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -91,41 +86,23 @@ Page {
             ColourSlider {
                 id: red
                 label: qsTr('Red')
-
-                onSliderValueChanged: {
-                    if (column.manualEditing)
-                        column.manualEditing = false
-                    else {
-                        ColourStore.r(value)
-                        colour.color = ColourStore.colour()
-                    }
-                }
+                tag: 'r'
+                updateWidget: column
+                updateColours: [colour]
             }
             ColourSlider {
                 id: green
                 label: qsTr('Green')
-
-                onSliderValueChanged: {
-                    if (column.manualEditing)
-                        column.manualEditing = false
-                    else {
-                        ColourStore.g(value)
-                        colour.color = ColourStore.colour()
-                    }
-                }
+                tag: 'g'
+                updateWidget: column
+                updateColours: [colour]
             }
             ColourSlider {
                 id: blue
                 label: qsTr('Blue')
-
-                onSliderValueChanged: {
-                    if (column.manualEditing)
-                        column.manualEditing = false
-                    else {
-                        ColourStore.b(value)
-                        colour.color = ColourStore.colour()
-                    }
-                }
+                tag: 'b'
+                updateWidget: column
+                updateColours: [colour]
             }
 
             /* This is a large colour box – but it is really different
@@ -138,7 +115,14 @@ Page {
                 width: column.width - 2*x
                 height: 200
                 radius: Theme.paddingMedium
-                color: column.manualEditing ? colourName.text : Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+                color: {
+                    if (column.manualEditing)
+                        return colourName.text
+                    else {
+                        ColourStore.setColour(red.value, green.value, blue.value)
+                        return ColourStore.colour()
+                    }
+                }
                 border.color: 'white'
                 border.width: 2
 
@@ -192,5 +176,28 @@ Page {
                 }
             }
         }
+
+        PushUpMenu {
+            MenuItem {
+                id: menuColourModel
+                text: qsTr(ColourStore.NextModelSet().name) + qsTr(" Colour Model")
+                onClicked: {
+                    ColourStore.SetNextModel()
+                    page.switchColourModel()
+                }
+            }
+        }
+    }
+
+    function switchColourModel() {
+        menuColourModel.text = qsTr(ColourStore.NextModelSet().name) + qsTr(" Colour Model")
+
+        var currModSet = ColourStore.CurrentModelSet();
+        red.label = qsTr(currModSet.s1Name)
+        red.maximumValue = currModSet.s1Max;
+        green.label = qsTr(currModSet.s2Name);
+        green.maximumValue = currModSet.s2Max;
+        blue.label = qsTr(currModSet.s3Name);
+        blue.maximumValue = currModSet.s3Max;
     }
 }

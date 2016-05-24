@@ -21,6 +21,33 @@
     </message>
 </context>
 <context>
+    <name>ColourStore</name>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturation/%</source>
+        <translation>Saturation/%</translation>
+    </message>
+    <message>
+        <source>Lightness/%</source>
+        <translation>Lightness/%</translation>
+    </message>
+    <message>
+        <source>Hue</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <source>Colour Chosen:</source>
@@ -81,6 +108,10 @@
     </message>
     <message>
         <source>Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Colour Model</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

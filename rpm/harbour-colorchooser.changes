@@ -5,6 +5,10 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue May 24 2016 Robert Bienert <robertbienert@gmx.net> 0.3-9
+- added HSL input option
+- TODO: RGB -> HSL conversion
+
 * Mon May 23 2016 Robert Bienert <robertbienert@gmx.net> 0.3-8
 - CoverAction's for saving and loading colours as well as fullscreen mode added
 

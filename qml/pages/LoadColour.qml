@@ -87,6 +87,9 @@ Page {
             onClicked: {
                 var currentColour = listView.colours[index];
                 ColourStore.setHexColour(currentColour.colour);
+                // TODO
+                ColourStore.model = ColourStore.RGBModel;
+                pageStack.previousPage().switchColourModel();
                 pageStack.previousPage().reloadColours();
                 pageStack.pop();
             }

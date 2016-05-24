@@ -18,6 +18,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../pages/ColourStore.js" as ColourStore
 
 Slider {
     width: parent.width
@@ -25,4 +26,18 @@ Slider {
     maximumValue: 255
     stepSize: 1.
     valueText: value.toString()
+    property string tag: ''         // given to ColourStore.setAColour
+    property var updateWidget       // needs to have a manuelEditing switch
+    property var updateColours: []  // widgets that get their color updated
+
+    onSliderValueChanged: {
+        if (updateWidget.manualEditing)
+            updateWidget.manualEditing = false
+        else {
+            ColourStore.setAColour(tag, value)
+
+            for (var i = 0; i < updateColours.length; ++i)
+                updateColours[i].color = ColourStore.colour()
+        }
+    }
 }
