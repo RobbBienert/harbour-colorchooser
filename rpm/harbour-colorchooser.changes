@@ -5,17 +5,10 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Tue May 24 2016 Robert Bienert <robertbienert@gmx.net> 0.3-9
+* Thu May 26 2016 Robert Bienert <robertbienert@gmx.net> 1.0-1
 - added HSL input option
-- TODO: RGB -> HSL conversion
-
-* Mon May 23 2016 Robert Bienert <robertbienert@gmx.net> 0.3-8
 - CoverAction's for saving and loading colours as well as fullscreen mode added
-
-* Sun May 22 2016 Robert Bienert <robertbienert@gmx.net> 0.3-7
 - Fullscreen mode enabled (applying to issue #1)
-
-* Sun May 15 2016 Robert Bienert <robertbienert@gmx.net> 0.3-6
 - pressing enter on main page takes hex colour from text field
 - colour save dialog is now also accepted by pressing enter
 

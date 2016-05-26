@@ -44,11 +44,11 @@ Page {
 
             SailText {
                 id: about
-                text: qsTr("choose a RGB colour from sliders for red, green and blue")
+                text: qsTr("choose a RGB colour from sliders for red, green and blue\n– optionally: use HSL values (hue, saturation and lightness)")
             }
             SailText {
                 id: copyright
-                text: "Version 0.3-9\nCopyright © 2016 Robert Bienert"
+                text: "Version 1.0\nCopyright © 2016 Robert Bienert"
             }
             /* The standard link colour is (dark) blue, which is nearly
              * unreadable in most themes. A better link colour seems to

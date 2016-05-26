@@ -22,6 +22,52 @@ function hsl2rgb(h, s, l) {
     return Qt.hsla(h/360., s/100., l/100., 1.);
 }
 
+/*
+ */
+function rgb2hsl(r, g, b, base) {
+	// normalize RGB from 0-255 to 0-1
+    var r = r/base;
+    var g = g/base;
+    var b = b/base;
+	var maxVal = Math.max(Math.max(r, g), b);
+	var minVal = Math.min(Math.min(r, g), b);
+	var maxDiff = maxVal - minVal;
+	
+    /* see https://en.wikipedia.org/wiki/HSL_and_HSV for details about
+     * how to converte RGB into HSL values.
+     */
+	var h = 0.;
+	if (maxVal != minVal) {
+		if (maxVal === r)
+			h = (g -b) / maxDiff;
+		else if (maxVal === g)
+			h = 2 + (b -r) / maxDiff;
+		else
+			h = 4 + (r - g) / maxDiff;
+		h *= 60.;
+	}
+	
+	var s = (0 === maxVal || 1 === minVal) ? s = 0. :
+		maxDiff / (1 - Math.abs(maxVal + minVal - 1));
+	
+	return [h, s, (maxVal + minVal)/2.];
+}
+
+function tohsl() {
+    return rgb2hsl(_rr, _gg, _bb, 1)
+}
+
+function updateHSL() {
+    var hsl = tohsl()
+    h(hsl[0])
+    _ss = hsl[1]
+    _s = _ss * 100
+    _ll = hsl[2]
+    _l = _ll * 100
+}
+
+// The following ColourModel stuff is needed for switching between RGB and HSL.
+
 /* (name, s1Name, s1Max, s2Name, s2Max, s3Name, s3Max, hexColour=null)
  */
 function ColourModel() {
@@ -172,6 +218,18 @@ function setColour(newR, newG, newB) {
 // getter
 function rgb() {
     return [_r, _g, _b];
+}
+
+function hsl() {
+    return [_h, _s, _l];
+}
+
+function currentColours() {
+    if (model === RGBModel) {
+        return rgb()
+    } else if (model === HSLModel) {
+        return hsl()
+    }
 }
 
 function colour() {

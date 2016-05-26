@@ -29,9 +29,30 @@ Page {
      * PageStack. In this case the ColourStore is not re-read.
      */
     function reloadColours() {
-        red.value   = ColourStore.r();
-        green.value = ColourStore.g();
-        blue.value  = ColourStore.b();
+        var currModSet = ColourStore.CurrentModelSet()
+        ColourStore.updateHSL()
+        var currColours = ColourStore.currentColours()
+
+        switch (ColourStore.model) {
+        case ColourStore.HSLModel:
+            red.maximumValue = currModSet.s1Max
+            red.value = currColours[0]
+            green.value = currColours[1]
+            green.maximumValue = currModSet.s2Max
+            blue.value = currColours[2]
+            blue.maximumValue = currModSet.s3Max
+            break;
+        case ColourStore.RGBModel:
+            red.value = currColours[0]
+            red.maximumValue = currModSet.s1Max
+            green.maximumValue = currModSet.s2Max
+            green.value = currColours[1]
+            blue.maximumValue = currModSet.s3Max
+            blue.value = currColours[2]
+            break;
+        }
+
+        return currModSet
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -151,19 +172,23 @@ Page {
 
                     if (text.length === 7) {
                         ColourStore.setHexColour(colourName.text)
+                        ColourStore.updateHSL()
                         var rgb = ColourStore.rgb()
                         r = rgb[0]; g = rgb[1]; b = rgb[2];
                     }
                     else if (text.length === 4) {
-                        r = parseInt(text[1], 16)
-                        g = parseInt(text[2], 16)
-                        b = parseInt(text[3], 16)
-                        ColourStore.setColour(r, g, b)
+                        ColourStore.r(parseInt(text[1], 16))
+                        ColourStore.g(parseInt(text[2], 16))
+                        ColourStore.b(parseInt(text[3], 16))
+                        ColourStore.updateHSL()
                     }
                     colour.color = text
+                    /*
                     red.value = r
                     green.value = g
                     blue.value = b
+                    */
+                    page.updateColours()
                 }
 
                 onTextChanged: {
@@ -192,12 +217,10 @@ Page {
     function switchColourModel() {
         menuColourModel.text = qsTr(ColourStore.NextModelSet().name) + qsTr(" Colour Model")
 
-        var currModSet = ColourStore.CurrentModelSet();
-        red.label = qsTr(currModSet.s1Name)
-        red.maximumValue = currModSet.s1Max;
+        var currModSet = reloadColours()
+
+        red.label = qsTr(currModSet.s1Name);
         green.label = qsTr(currModSet.s2Name);
-        green.maximumValue = currModSet.s2Max;
         blue.label = qsTr(currModSet.s3Name);
-        blue.maximumValue = currModSet.s3Max;
     }
 }
