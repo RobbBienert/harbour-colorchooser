@@ -65,7 +65,7 @@ CoverBackground {
             CoverAction {
                 iconSource: "image://theme/icon-s-setting"
                 onTriggered: {
-                    pageStack.push(Qt.resolvedUrl("../pages/LoadColour.qml"))
+					pageStack.push(Qt.resolvedUrl("../pages/LoadColour.qml"))
                     pageStack.completeAnimation()
                     app.activate()
                 }
@@ -90,4 +90,8 @@ CoverBackground {
             box.color = ColourStore.colour()
         }
     }
+
+	// dummy function to avoid errors in the LoadColour page
+	function reloadColours() {
+	}
 }

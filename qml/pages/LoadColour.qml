@@ -87,7 +87,7 @@ Page {
             onClicked: {
                 var currentColour = listView.colours[index];
                 ColourStore.setHexColour(currentColour.colour);
-                pageStack.previousPage().reloadColours();
+				pageStack.previousPage().reloadColours();
                 pageStack.pop();
             }
             // The ContextMenu pops up when we tap an item.

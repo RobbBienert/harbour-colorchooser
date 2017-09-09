@@ -10,6 +10,7 @@
 - when converting a RGB color to HSL the values are now rounded in a proper way
 - the fullscreen view has been made easier to read
 - cover page layout fixed
+- loading a colour from the cover page now works correctly
 
 * Thu May 26 2016 Robert Bienert <robertbienert@gmx.net> 1.0-1
 - added HSL input option

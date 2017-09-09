@@ -217,4 +217,6 @@ Page {
         green.label = qsTr(currModSet.s2Name);
         blue.label = qsTr(currModSet.s3Name);
     }
+
+	Component.onCompleted: page.reloadColours()
 }
