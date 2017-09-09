@@ -33,21 +33,19 @@ Page {
         ColourStore.updateHSL()
         var currColours = ColourStore.currentColours()
 
-        switch (ColourStore.model) {
+		red.maximumValue = currModSet.s1Max
+		green.maximumValue = currModSet.s2Max
+		blue.maximumValue = currModSet.s3Max
+
+		switch (ColourStore.model) {
         case ColourStore.HSLModel:
-            red.maximumValue = currModSet.s1Max
-            red.value = currColours[0]
-            green.value = currColours[1]
-            green.maximumValue = currModSet.s2Max
-            blue.value = currColours[2]
-            blue.maximumValue = currModSet.s3Max
+			red.value = currColours[0].toFixed(0)
+			green.value = currColours[1].toFixed(0)
+			blue.value = currColours[2].toFixed(0)
             break;
         case ColourStore.RGBModel:
             red.value = currColours[0]
-            red.maximumValue = currModSet.s1Max
-            green.maximumValue = currModSet.s2Max
             green.value = currColours[1]
-            blue.maximumValue = currModSet.s3Max
             blue.value = currColours[2]
             break;
         }
@@ -183,12 +181,8 @@ Page {
                         ColourStore.updateHSL()
                     }
                     colour.color = text
-                    /*
-                    red.value = r
-                    green.value = g
-                    blue.value = b
-                    */
-                    page.updateColours()
+
+					//page.updateColours()
                 }
 
                 onTextChanged: {

@@ -26,15 +26,15 @@
     <name>ColourStore</name>
     <message>
         <source>Red</source>
-	<translation>Rot</translation>
+        <translation>Rot</translation>
     </message>
     <message>
         <source>Green</source>
-	<translation>Grün</translation>
+        <translation>Grün</translation>
     </message>
     <message>
         <source>Blue</source>
-	<translation>Blau</translation>
+        <translation>Blau</translation>
     </message>
     <message>
         <source>Saturation/%</source>

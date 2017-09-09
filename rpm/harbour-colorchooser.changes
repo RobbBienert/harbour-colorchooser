@@ -5,6 +5,10 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Sep 09 2017 Robert Bienert <robertbienert@gmx.net> 1.1-1
+- fixed a bug in the german translation
+- when converting a RGB color to HSL the values are now rounded in a proper way
+
 * Thu May 26 2016 Robert Bienert <robertbienert@gmx.net> 1.0-1
 - added HSL input option
 - CoverAction's for saving and loading colours as well as fullscreen mode added
