@@ -25,7 +25,7 @@ CoverBackground {
     id: cover
 
     Column {
-        anchors.centerIn: parent
+		anchors.centerIn: parent
         spacing: Theme.paddingMedium
 
         Label {
@@ -44,7 +44,7 @@ CoverBackground {
             horizontalAlignment: Text.Center
         }
         Label {
-            text: ""
+			text: " "
         }
 
         CoverActionList {

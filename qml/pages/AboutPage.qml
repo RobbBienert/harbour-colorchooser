@@ -48,7 +48,7 @@ Page {
             }
             SailText {
                 id: copyright
-                text: "Version 1.0\nCopyright © 2016 Robert Bienert"
+				text: "Version 1.1\nCopyright © 2016, 2017 Robert Bienert"
             }
             /* The standard link colour is (dark) blue, which is nearly
              * unreadable in most themes. A better link colour seems to
