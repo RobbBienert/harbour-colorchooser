@@ -44,12 +44,16 @@ Page {
                 width: colourName.contentWidth + padding
                 height: colourName.height + padding
                 color: Theme.highlightBackgroundColor
+				border.width: 2
+				border.color: 'white'
+
                 Label {
                     id: colourName
                     anchors.centerIn: parent
                     width: parent.width
                     horizontalAlignment: Text.Center
                     text: ColourStore.colour()
+					font.bold: true
                 }
             }
         }
