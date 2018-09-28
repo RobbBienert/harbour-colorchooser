@@ -1,6 +1,6 @@
 /* Main Application Page
  *
- * Copyright (C) 2016 Robert Bienert
+ * Copyright (C) 2016 - 2018 Robert Bienert
  * project harbour-colorchooser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -124,32 +124,44 @@ Page {
                 updateColours: [colour]
             }
 
-            /* This is a large colour box – but it is really different
-             * from the ColourBox type.
-             */
-            Rectangle {
-                id: colour
-                x: Theme.paddingLarge
-                y: Theme.paddingMedium
-                width: column.width - 2*x
-                height: 200
-                radius: Theme.paddingMedium
-                color: {
-                    if (column.manualEditing)
-                        return colourName.text
-                    else {
-                        ColourStore.setColour(red.value, green.value, blue.value)
-                        return ColourStore.colour()
-                    }
-                }
-                border.color: 'white'
-                border.width: 2
+			/* The Rectangle is not clickable, but we can do it just like a button:
+			 * put the Rectangle in a MouseArea and let it press.
+			 */
+			MouseArea {
+				height: 200
+				width: column.width
 
-                onColorChanged: {
-                    if (! column.manualEditing)
-                        colourName.text = color
-                }
-            }
+				/* This is a large colour box – but it is really different
+				 * from the ColourBox type.
+				 */
+				Rectangle {
+					id: colour
+					x: Theme.paddingLarge
+					y: Theme.paddingMedium
+					width: parent.width - 2*x
+					height: parent.height
+					radius: Theme.paddingMedium
+					color: {
+						if (column.manualEditing)
+							return colourName.text
+						else {
+							ColourStore.setColour(red.value, green.value, blue.value)
+							return ColourStore.colour()
+						}
+					}
+					border.color: 'white'
+					border.width: 2
+
+					onColorChanged: {
+						if (! column.manualEditing)
+							colourName.text = color
+					}
+
+				}
+
+				onPressed: pageStack.push(Qt.resolvedUrl("FullScreen.qml"))
+			}
+
             TextField {
                 id: colourName
                 width: parent.width - 2 * parent.spacing
