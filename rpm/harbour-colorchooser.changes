@@ -7,6 +7,7 @@
 
 * Fri Sep 28 2018 Robert Bienert <robertbienert@gmx.net> 1.2-1
 - implemented full screen switch on color box click from https://github.com/RobbBienert/harbour-colorchooser/issues/3
+- fixed function names
 
 * Sat Sep 09 2017 Robert Bienert <robertbienert@gmx.net> 1.1-1
 - fixed a bug in the german translation

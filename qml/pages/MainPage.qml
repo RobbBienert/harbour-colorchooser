@@ -29,7 +29,7 @@ Page {
      * PageStack. In this case the ColourStore is not re-read.
      */
     function reloadColours() {
-        var currModSet = ColourStore.CurrentModelSet()
+		var currModSet = ColourStore.currentModelSet()
         ColourStore.updateHSL()
         var currColours = ColourStore.currentColours()
 
@@ -211,9 +211,9 @@ Page {
         PushUpMenu {
             MenuItem {
                 id: menuColourModel
-                text: qsTr(ColourStore.NextModelSet().name) + qsTr(" Colour Model")
+				text: qsTr(ColourStore.nextModelSet().name) + qsTr(" Colour Model")
                 onClicked: {
-                    ColourStore.SetNextModel()
+					ColourStore.setNextModel()
                     page.switchColourModel()
                 }
             }
@@ -221,7 +221,7 @@ Page {
     }
 
     function switchColourModel() {
-        menuColourModel.text = qsTr(ColourStore.NextModelSet().name) + qsTr(" Colour Model")
+		menuColourModel.text = qsTr(ColourStore.nextModelSet().name) + qsTr(" Colour Model")
 
         var currModSet = reloadColours()
 

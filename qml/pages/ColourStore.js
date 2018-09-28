@@ -2,7 +2,7 @@
 
 /* saving the current colour in memory for the cover page
  *
- * Copyright (C) 2016 Robert Bienert
+ * Copyright (C) 2016 - 2018 Robert Bienert
  * project harbour-colorchooser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,9 +26,9 @@ function hsl2rgb(h, s, l) {
  */
 function rgb2hsl(r, g, b, base) {
 	// normalize RGB from 0-255 to 0-1
-    var r = r/base;
-    var g = g/base;
-    var b = b/base;
+	r = r/base;
+	g = g/base;
+	b = b/base;
 	var maxVal = Math.max(Math.max(r, g), b);
 	var minVal = Math.min(Math.min(r, g), b);
 	var maxDiff = maxVal - minVal;
@@ -94,20 +94,20 @@ var model = 0;
 var ModelSet = [new ColourModel("RGB", qsTr("Red"), 255, qsTr("Green"), 255, qsTr("Blue"), 255),
                 new ColourModel("HSL", qsTr("Hue")+"/°", 360, qsTr("Saturation/%"), 100, qsTr("Lightness/%"), 100, hsl2rgb)];
 
-function CurrentModelSet() {
+function currentModelSet() {
     return ModelSet[model];
 }
 
-function NextModel() {
+function nextModel() {
     return (model + 1) % ModelSet.length;
 }
 
-function SetNextModel() {
-    model = NextModel();
+function setNextModel() {
+	model = nextModel();
 }
 
-function NextModelSet() {
-    return ModelSet[NextModel()];
+function nextModelSet() {
+	return ModelSet[nextModel()];
 }
 
 /* RGB colour variables
