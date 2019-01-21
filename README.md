@@ -11,3 +11,10 @@ This simple app lets you choose a RGB colour by mixing the portions of red, gree
 
 ## Bugs, Ideas, …
 If there is anything that could be improved, do not hesitate contacting me or forking this repository. Have fun!
+
+## Publication
+
+This app is published in binary format to
+
+ * the Jolla harbour (access from the *Store* app on your mobile device)
+ * [OpenRepos](https://openrepos.net/content/robbbienert/colour-chooser)
